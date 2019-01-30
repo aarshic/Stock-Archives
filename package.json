@@ -2,7 +2,7 @@
   "name": "stock-archives",
   "version": "1.0.0",
   "description": "A web application for Stock Archives",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/aarshic/Stock-Archives/issues"
   },
-  "homepage": "https://github.com/aarshic/Stock-Archives#readme"
+  "homepage": "https://github.com/aarshic/Stock-Archives#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }
