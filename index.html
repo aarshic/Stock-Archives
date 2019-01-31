@@ -1,8 +1,73 @@
 <html>
     <head>
-
+        <script type="text/javascript" src="index.js"></script>
+        <style>
+            table td{
+                padding: 25px;
+                border: 5px solid black;
+            }
+            table{
+                margin: auto;
+            }
+        </style>
     </head>
-    <body>
-        <p>Here I am</p>
+    <body style="text-align:center; margin:250px;" >
+        <h1>Stock Archives</h1>
+        <form action="" method="get">
+            <input list="company" name="company">
+            <datalist id="company">
+                <script type="text/javascript">
+                    var symbol = new Array();
+                    symbol=['AIV','A','AAL','AAP','AAPL','ABBV','ABC','ABT','ACN','ADBE','ADI','ADM','ADP','ADS','ADSK','AEE','AEP','AES','AET','AFL','AGN','AIG','AIZ','AJG','AKAM','ALB','ALK','ALL','ALXN','AMAT','AME','AMG','AMGN','AMP','AMT','AMZN','AN','ANTM','AON','APA','APC','APD','APH','ARNC','ATVI','AVB','AVGO','AVY','AWK','AXP','AYI','AZO','BA','BAC','BAX','BBBY','BBT','BBY','BCR','BDX','BEN','BHI','BIIB','BK','BLK','BLL','BMY','BSX','BWA','BXP','C','CA','CAG','CAH','CAT','CB','CBG','CBS','CCI','CCL','CELG','CERN','CF','CHD','CHK','CHRW','CHTR','CI','CINF','CL','CLX','CMA','CMCSA','CME','CMG','CMI','CMS','CNC','CNP','COF','COG','COH','COL','COO','COP','COST','CPB','CRM','CSCO','CSX','CTAS','CTL','CTSH','CTXS','CVS','CVX','CXO','D','DAL','DD','DE','DFS','DG','DGX','DHI','DHR','DIS','DISCA','DISCK','DLPH','DLR','DLTR','DNB','DOV','DOW','DPS','DRI','DTE','DUK','DVA','DVN','EA','EBAY','ECL','ED','EFX','EIX','EL','EMN','EMR','ENDP','EOG','EQIX','EQR','EQT','ES','ESRX','ESS','ETFC','ETN','ETR','EW','EXC','EXPD','EXPE','EXR','F','FAST','FB','FBHS','FCX','FDX','FE','FFIV','FIS','FISV','FITB','FL','FLIR','FLR','FLS','FMC','FOX','FOXA','FRT','FSLR','FTI','FTR','GD','GE','GGP','GILD','GIS','GLW','GM','GOOG','GOOGL','GPC','GPN','GPS','GRMN','GS','GT','GWW','HAL','HAR','HAS','HBAN','HBI','HCA','HCN','HCP','HD','HES','HIG','HOG','HOLX','HON','HP','HPQ','HRB','HRL','HRS','HSIC','HST','HSY','HUM','IBM','ICE','IDXX','IFF','ILMN','INTC','INTU','IP','IPG','IR','IRM','ISRG','ITW','IVZ','JBHT','JCI','JEC','JNJ','JNPR','JPM','JWN','K','KEY','KIM','KLAC','KMB','KMI','KMX','KO','KORS','KR','KSS','KSU','L','LB','LEG','LEN','LH','LKQ','LLL','LLTC','LLY','LMT','LNC','LNT','LOW','LRCX','LUK','LUV','LVLT','LYB','M','MA','MAA','MAC','MAR','MAS','MAT','MCD','MCHP','MCK','MCO','MDLZ','MDT','MET','MHK','MJN','MKC','MLM','MMC','MMM','MNST','MO','MON','MOS','MPC','MRK','MRO','MSFT','MSI','MTB','MTD','MU','MUR','MYL','NBL','NDAQ','NEE','NEM','NFLX','NFX','NI','NKE','NLSN','NOC','NOV','NRG','NSC','NTAP','NTRS','NUE','NVDA','NWL','O','OKE','OMC','ORCL','ORLY','OXY','PAYX','PBCT','PBI','PCAR','PCG','PCLN','PDCO','PEG','PEP','PFE','PFG','PG','PGR','PH','PHM','PKI','PLD','PM','PNC','PNR','PNW','PPG','PPL','PRGO','PRU','PSA','PSX','PVH','PWR','PX','PXD','QCOM','R','RAI','RCL','REGN','RF','RHI','RHT','RIG','RL','ROK','ROP','ROST','RRC','RSG','RTN','SBUX','SCG','SCHW','SE','SEE','SHW','SIG','SJM','SLB','SLG','SNA','SNI','SO','SPG','SPGI','SPLS','SRCL','SRE','STI','STT','STX','STZ','SWK','SWKS','SWN','SYK','SYMC','SYY','T','TAP','TDC','TDG','TEL','TGNA','TGT','TIF','TJX','TMK','TMO','TRIP','TROW','TRV','TSCO','TSN','TSO','TSS','TWX','TXN','TXT','UAA','UAL','UDR','UHS','ULTA','UNH','UNM','UNP','UPS','URBN','URI','USB','UTX','V','VAR','VFC','VIAB','VLO','VMC','VNO','VRSK','VRSN','VRTX','VTR','VZ','WAT','WBA','WDC','WEC','WFC','WFM','WHR','WLTW','WM','WMB','WMT','WU','WY','WYN','WYNN','XEC','XEL','XL','XLNX','XOM','XRAY','XRX','XYL','YHOO','YUM','ZBH','ZION','ZTS'];
+                    
+                    var options1 = '';
+                    for(var i = 0; i < symbol.length; i++)
+                        options1 += '<option value="'+ symbol[i]+'" />';
+                
+                    document.getElementById('company').innerHTML = options1;
+                </script>
+            </datalist>
+            <input list="year" name="year">
+            <datalist id="year">
+                <script type="text/javascript">
+                    var year = new Array();
+                    year=['2010','2011','2012','2013','2014','2015','2016'];
+                    
+                    var options2 = '';
+                    for(var i = 0; i < year.length; i++)
+                        options2 += '<option value="'+ year[i]+'" />';
+                
+                    document.getElementById('year').innerHTML = options2;
+                </script>
+            </datalist>
+            <input list="month" name="month">
+            <datalist id="month">
+                <script type="text/javascript">
+                    var month = new Array();
+                    month=['01','02','03','04','05','06','07','08','09','10','11','12'];
+                    
+                    var options3 = '';
+                    for(var i = 0; i < month.length; i++)
+                        options3 += '<option value="'+ month[i]+'" />';
+                
+                    document.getElementById('month').innerHTML = options3;
+                </script>
+            </datalist>
+            <input list="day" name="day">
+            <datalist id="day">
+                <script type="text/javascript">
+                    var day = new Array();
+                    day=['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+                    
+                    var options4 = '';
+                    for(var i = 0; i < day.length; i++)
+                        options4 += '<option value="'+ day[i]+'" />';
+                
+                    document.getElementById('day').innerHTML = options4;
+                </script>
+            </datalist>
+            <br /><br />
+            <input type="submit">
+        </form>
     </body>
 </html>

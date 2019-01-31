@@ -43,37 +43,53 @@ var file_data = fs.readFileSync('../prices763fefc.csv', { encoding : 'utf8'});
 
 var obj = csvjson.toObject(file_data, options);  
 
-// console.log(result[].symbol);
+// console.log(obj[10000]);
 
 
 
 
-// var obj = JSON.parse(data);
+
+
+
+
+
+
+// var idsym = "";
+// var company = readline.question("What is your company name: ");
+// var year = readline.question("Year: ");
+// var month = readline.question("Month: ");
+// var day = readline.question("Day: ");
+// var date = year + "-" + month + "-" + day;
 // for (var i = 0; i < obj.length; i++){
-//     console.log(obj[i].symbol);
+//     if (obj[i].symbol.toLowerCase() == company.toLowerCase()){
+//         idsym = obj[i].volume;
+//         if(obj[i].date == date){
+//             // console.log(idsym);
+//             // console.log(obj[i].date);
+//             // console.log(date);
+//             console.log(obj[i])
+//         }
+//     }
 // }
-var idsym = "";
-var company = readline.question("What is your company name: ");
-var year = readline.question("Year: ");
-var month = readline.question("Month: ");
-var day = readline.question("Day: ");
-var date = year + "-" + month + "-" + day;
-for (var i = 0; i < obj.length; i++){
-    if (obj[i].symbol.toLowerCase() == company.toLowerCase()){
-        idsym = obj[i].volume;
-        if(obj[i].date == date){
-            // console.log(idsym);
-            // console.log(obj[i].date);
-            // console.log(date);
-            console.log(obj[i])
-        }
-    }
-}
+
+
+
+
+
+
+
+
 
 // var gender = readline.question("Gender: ");
 // var age = readline.question("Age: ");
 
-// request.get('https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=['+idsym+']&gender='+gender+'&year_of_birth='+age+'&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFhcnNoaS4xOTk4QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMzk3OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxOC0xMC0wOSIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM5Nzk0Nzk2LCJuYmYiOjE1Mzk3ODc1OTZ9.7qN-X98CP2HRfp0Ao-6CoDrOrMVFD9cixIWQee3QAbk&format=json&language=en-gb'
+// options1=window.document.getElementById("company");
+// options2=document.getElementById("year");
+// options3=document.getElementById("month");
+// options4=document.getElementById("day");
+
+
+// request.get('http://localhost:3000/?company=['+options1+']&year=['+options2+']&month=['+options3+']&day=['+options4+']'
 // ,(err, res, data)=>{
 //     var obj = JSON.parse(data);
 //     for (var i = 0; i < obj.length; i++){
