@@ -2,19 +2,57 @@
     <head>
         <script type="text/javascript" src="index.js"></script>
         <style>
-            table td{
-                padding: 25px;
-                border: 5px solid black;
+            h1{
+                font-size:50px;
+            }
+            input{
+                margin: 10px;
+                font-size: 20px;
+                padding: 10px;
+            }
+            .company{
+                width: 225px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .year, .month, .day{
+                width: 120px;
+                height: 40px;
+                font-size: 20px;
+            }
+            th{
+                padding: 50px;
             }
             table{
-                margin: auto;
+                font-size: 20px;
+                text-decoration: none;
             }
+
+            th, td, p, input {
+            font:14px Verdana;
+        }
+        table, th, td 
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
         </style>
     </head>
-    <body style="text-align:center; margin:250px;" >
+    <body style="text-align:center; margin-top:50px;background-color: aquamarine" >
         <h1>Stock Archives</h1>
+        <script type="text/JavaScript">
+            function showtable(){
+                var message = document.getElementsByClassName(".company").value;
+                display_message.innerHTML= message;
+            }
+        </script>
         <form action="" method="get">
-            <input list="company" name="company">
+            <input class="company" list="company" name="company" placeholder="Company Name">
             <datalist id="company">
                 <script type="text/javascript">
                     var symbol = new Array();
@@ -27,7 +65,7 @@
                     document.getElementById('company').innerHTML = options1;
                 </script>
             </datalist>
-            <input list="year" name="year">
+            <input class="year" list="year" name="year" placeholder="Year">
             <datalist id="year">
                 <script type="text/javascript">
                     var year = new Array();
@@ -40,7 +78,7 @@
                     document.getElementById('year').innerHTML = options2;
                 </script>
             </datalist>
-            <input list="month" name="month">
+            <input class="month" list="month" name="month" placeholder="Month">
             <datalist id="month">
                 <script type="text/javascript">
                     var month = new Array();
@@ -53,7 +91,7 @@
                     document.getElementById('month').innerHTML = options3;
                 </script>
             </datalist>
-            <input list="day" name="day">
+            <input class="day" list="day" name="day" placeholder="Day">
             <datalist id="day">
                 <script type="text/javascript">
                     var day = new Array();
@@ -62,12 +100,87 @@
                     var options4 = '';
                     for(var i = 0; i < day.length; i++)
                         options4 += '<option value="'+ day[i]+'" />';
-                
                     document.getElementById('day').innerHTML = options4;
                 </script>
             </datalist>
             <br /><br />
-            <input type="submit">
+            <input type="submit" onclick="showtable()">
+
+
+
+            <script>
+                var options = {
+                    delimiter : ',' , // optional
+                    quote     : '"' // optional
+                };
+    
+                var file_data = fs.readFileSync('../prices763fefc.csv', { encoding : 'utf8'});
+    
+                var obj = csvjson.toObject(file_data, options);  
+                
+                window.alert("Yuhuuu!");
+                
+                function CreateTableFromJSON() {
+                    // var message = document.getElementById("message").value;
+                    // display_message.innerHTML= message;
+                    var myBooks = obj[0].symbol;
+                    // [
+                    //     {
+                    //         "Book ID": "1",
+                    //         "Book Name": "Computer Architecture",
+                    //         "Category": "Computers",
+                    //         "Price": "125.60"
+                    //     }
+                    // ]
+            
+                    var col = [];
+                    for (var i = 0; i < myBooks.length; i++) {
+                        for (var key in myBooks[i]) {
+                            if (col.indexOf(key) === -1) {
+                                col.push(key);
+                            }
+                        }
+                    }
+            
+                    var table = document.createElement("table");
+            
+                    var tr = table.insertRow(-1);                   // TABLE ROW.
+            
+                    for (var i = 0; i < col.length; i++) {
+                        var th = document.createElement("th");      // TABLE HEADER.
+                        th.innerHTML = col[i];
+                        tr.appendChild(th);
+                    }
+            
+                    for (var i = 0; i < myBooks.length; i++) {
+            
+                        tr = table.insertRow(-1);
+            
+                        for (var j = 0; j < col.length; j++) {
+                            var tabCell = tr.insertCell(-1);
+                            tabCell.innerHTML = myBooks[i][col[j]];
+                        }
+                    }
+            
+                    var divContainer = document.getElementById("showData");
+                    divContainer.innerHTML = "";
+                    divContainer.appendChild(table);
+                }
+            </script>
+            
+
+
+
+
+            <center>
+                <p>Message is: <span id="display_message"></span></p>
+                <!-- <div onload="document.innerHTML(' is ' + json)"></div> -->
+
+                <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+                <p id="showData"></p>
+                <script>json</script>
+                
+            </center>
         </form>
     </body>
 </html>

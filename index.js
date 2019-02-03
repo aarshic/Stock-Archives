@@ -7,6 +7,8 @@ const fs = require('fs');
 var http = require("http");
 var csvjson = require('csvjson');
 var readline = require('readline-sync');
+// const jsdom = require("jsdom");
+// const { JSDOM } = jsdom;
 
 const app=express();
 
@@ -31,13 +33,10 @@ var json = csvToJson.getJsonFromCsv("../prices763fefc.csv");
 //     }
 // }
 
-
-
 var options = {
     delimiter : ',' , // optional
     quote     : '"' // optional
 };
-
 
 var file_data = fs.readFileSync('../prices763fefc.csv', { encoding : 'utf8'});
 
@@ -45,7 +44,8 @@ var obj = csvjson.toObject(file_data, options);
 
 // console.log(obj[10000]);
 
-
+// json = JSON.stringify(obj);
+// console.log(obj);
 
 
 
@@ -76,37 +76,39 @@ var obj = csvjson.toObject(file_data, options);
 
 
 
-
-
-
-
 // var gender = readline.question("Gender: ");
 // var age = readline.question("Age: ");
+// global.document = new JSDOM(html).window.document;
 
-// options1=window.document.getElementById("company");
-// options2=document.getElementById("year");
+
+// var options2=document.getElementById("year");
 // options3=document.getElementById("month");
 // options4=document.getElementById("day");
+// global._ = require('underscore');
 
 
-// request.get('http://localhost:3000/?company=['+options1+']&year=['+options2+']&month=['+options3+']&day=['+options4+']'
-// ,(err, res, data)=>{
-//     var obj = JSON.parse(data);
-//     for (var i = 0; i < obj.length; i++){
-//         console.log(obj[i].Issue.Name);
-//     }
-    
-//     var condition = readline.question("What is your condition: ");
-//     console.log("Your condition is: " + condition);
+request.get('http://localhost:3000', (err, res, data)=>{
+    // var options1 = global.document.querySelectorAll('#year');
+    // request.get('http://localhost:3000/?company=['+options1+']&year=['+options2+']&month=['+options3+']&day=['+options4+']'
+    // request.get('http://localhost:3000/?company=GIS&year=2010&month=01&day=04'
+    // ,(err, res, data)=>{
+        // console.log('yuhu');
+        // var y = JSON.parse(data);
+        // for (var i = 0; i < y.length; i++){
+        //     console.log(y[i]);
+        // }
+        
+    //     var condition = readline.question("What is your condition: ");
+    //     console.log("Your condition is: " + condition);
 
-//     var x = condition.toString().replace(/\s+/g, '-').toLowerCase();
-//     request.get('https://www.apollohospitals.com/patient-care/health-and-lifestyle/diseases-and-conditions/' + x
-//     ,(err, res, data)=>{
-//         console.log(data);  
-//         var ch = global.document.getElementsByClassName(".arrow");
-//         console.log('treatment: ' + ch);
-//     });
-// });
+    //     var x = condition.toString().replace(/\s+/g, '-').toLowerCase();
+    //     request.get('https://www.apollohospitals.com/patient-care/health-and-lifestyle/diseases-and-conditions/' + x
+    //     ,(err, res, data)=>{
+    //         console.log(data);  
+    //         var ch = global.document.getElementsByClassName(".arrow");
+    //         console.log('treatment: ' + ch);
+    // });
+});
 
 
 

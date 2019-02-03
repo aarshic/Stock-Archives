@@ -25,9 +25,11 @@
     "csvjson": "^5.1.0",
     "csvtojson": "^2.0.8",
     "express": "^4.16.4",
+    "jsdom": "^13.2.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.8",
     "readline-sync": "^1.4.9",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "underscore": "^1.9.1"
   }
 }
