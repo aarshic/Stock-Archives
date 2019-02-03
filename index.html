@@ -1,7 +1,16 @@
 <html>
     <head>
+        <title>Stock Archives</title>
         <script type="text/javascript" src="index.js"></script>
         <style>
+            body{
+                background-image: url(./images/im.jpg);
+                background-color: rgb(227, 233, 233);
+                height: 400PX;
+                width: 1450px;
+                text-align: center;
+                margin-top: 200px;
+            }
             h1{
                 font-size:50px;
             }
@@ -20,37 +29,23 @@
                 height: 40px;
                 font-size: 20px;
             }
-            th{
-                padding: 50px;
-            }
-            table{
-                font-size: 20px;
-                text-decoration: none;
-            }
-
             th, td, p, input {
-            font:14px Verdana;
-        }
-        table, th, td 
-        {
-            border: solid 1px #DDD;
-            border-collapse: collapse;
-            padding: 2px 3px;
-            text-align: center;
-        }
-        th {
-            font-weight:bold;
-        }
+                font:14px Verdana;
+            }
+            table, th, td 
+            {
+                border: solid 1px #DDD;
+                border-collapse: collapse;
+                padding: 2px 3px;
+                text-align: center;
+            }
+            th {
+                font-weight:bold;
+            }
         </style>
     </head>
-    <body style="text-align:center; margin-top:50px;background-color: aquamarine" >
+    <body>
         <h1>Stock Archives</h1>
-        <script type="text/JavaScript">
-            function showtable(){
-                var message = document.getElementsByClassName(".company").value;
-                display_message.innerHTML= message;
-            }
-        </script>
         <form action="" method="get">
             <input class="company" list="company" name="company" placeholder="Company Name">
             <datalist id="company">
@@ -104,9 +99,6 @@
                 </script>
             </datalist>
             <br /><br />
-            <input type="submit" onclick="showtable()">
-
-
 
             <script>
                 var options = {
@@ -117,21 +109,17 @@
                 var file_data = fs.readFileSync('../prices763fefc.csv', { encoding : 'utf8'});
     
                 var obj = csvjson.toObject(file_data, options);  
-                
-                window.alert("Yuhuuu!");
-                
+                                
                 function CreateTableFromJSON() {
-                    // var message = document.getElementById("message").value;
-                    // display_message.innerHTML= message;
-                    var myBooks = obj[0].symbol;
-                    // [
-                    //     {
-                    //         "Book ID": "1",
-                    //         "Book Name": "Computer Architecture",
-                    //         "Category": "Computers",
-                    //         "Price": "125.60"
-                    //     }
-                    // ]
+                    var myBooks = //obj[0].symbol;
+                    [
+                        {
+                            "Book ID": "1",
+                            "Book Name": "Computer Architecture",
+                            "Category": "Computers",
+                            "Price": "125.60"
+                        }
+                    ]
             
                     var col = [];
                     for (var i = 0; i < myBooks.length; i++) {
@@ -167,19 +155,9 @@
                     divContainer.appendChild(table);
                 }
             </script>
-            
-
-
-
-
             <center>
-                <p>Message is: <span id="display_message"></span></p>
-                <!-- <div onload="document.innerHTML(' is ' + json)"></div> -->
-
-                <input type="button" onclick="CreateTableFromJSON()" value="Create Table From JSON" />
+                <input type="button" onclick="CreateTableFromJSON()" value="Submit" />
                 <p id="showData"></p>
-                <script>json</script>
-                
             </center>
         </form>
     </body>
