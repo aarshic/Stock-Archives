@@ -30,6 +30,6 @@
     "mongoose": "^5.4.8",
     "readline-sync": "^1.4.9",
     "request": "^2.88.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
